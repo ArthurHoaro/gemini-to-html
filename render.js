@@ -12,7 +12,7 @@ function id(content) {
 function render (tokens) {
   return tokens.map((line) => {
     const { type } = line
-    const className = line.className ? ` class="${line.className}"` : ''
+    const className = line.className ? ` class=${line.className}` : ''
 
     switch (type) {
       case 'quote': return htmlEscape`<blockquote${className}>${line.content}</blockquote>`
