@@ -10,6 +10,7 @@ console.log(parsed)
 
 const render = require('./render')
 
+parsed[0].className = 'lol lil';
 const rendered = render(parsed)
 
 console.log(rendered)
