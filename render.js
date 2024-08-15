@@ -21,7 +21,7 @@ function render (tokens) {
         case 'pre': return line.alt
           ? htmlEscape`<pre class="${line.className ?? ''}"><code class="language-${line.alt}">\n${line.items.join('\n')}\n</code></pre>`
           : htmlEscape`<pre class="${line.className ?? ''}">\n${line.items.join('\n')}\n</pre>`
-        case 'list': return htmlEscape`<ul class="${line.className ?? ''}">\n${line.items.map((item) => htmlEscape`\t<li>${item}</li>`).join('\n')}\n</ul>`
+        case 'list': return `<ul ${htmlEscape`class="${line.className ?? ''}"`}>\n${line.items.map((item) => htmlEscape`\t<li>${item}</li>`).join('\n')}\n</ul>`
         default: return line.content ? htmlEscape`<p class="${line.className ?? ''}">${line.content}</p>` : '<br/>'
       }
     })(line);
