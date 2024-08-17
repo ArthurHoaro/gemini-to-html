@@ -13,11 +13,11 @@ function render (tokens) {
   return tokens.map((line) => {
     const { type } = line
 
-    const out = ((line) => {
+    let out = ((line) => {
       switch (type) {
         case 'quote': return htmlEscape`<blockquote class="${line.className ?? ''}">${line.content}</blockquote>`
         case 'header': return htmlEscape`<h${line.level} id="${id(line.content)}" class="${line.className ?? ''}">${line.content}</h${line.level}>`
-        case 'link': return htmlEscape`<p><a href="${line.href}" class="${line.className ?? ''}" rel="${line.rel}">${line.content}</a></p>`
+        case 'link': return htmlEscape`<p><a href="${line.href}" class="${line.className ?? ''}" rel="${line.rel ?? ''}">${line.content}</a></p>`
         case 'pre': return line.alt
           ? htmlEscape`<pre class="${line.className ?? ''}"><code class="language-${line.alt}">\n${line.items.join('\n')}\n</code></pre>`
           : htmlEscape`<pre class="${line.className ?? ''}">\n${line.items.join('\n')}\n</pre>`
