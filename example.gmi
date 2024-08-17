@@ -12,6 +12,7 @@ Some example text
 
 => http://example.com
 => http://example.com	with some text
+=> http://example.com	to generate rel attr
 
 ```javascript
 console.log('hello world')

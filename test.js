@@ -19,6 +19,13 @@ if (listIndex !== -1) {
   console.error('Error: List index not found!');
 }
 
+const linkIndex = parsed.findLastIndex(item => item.type === 'link');
+if (linkIndex !== -1) {
+  parsed[linkIndex].className = 'xss" attempt';
+} else {
+  console.error('Error: Link index not found!');
+}
+
 const rendered = render(parsed)
 
 console.log(rendered)
